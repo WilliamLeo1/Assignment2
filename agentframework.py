@@ -54,9 +54,3 @@ class Agent():
     def land(self):
         if self.z == 0:
             self.environment[self.y][self.x] += 1
-        
-        
-            
-            
-            
-            

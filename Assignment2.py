@@ -6,10 +6,6 @@ Created on Sat May 22 15:32:28 2021
 """
 
 import matplotlib
-import random
-import csv
-import bs4
-import requests
 import agentframework
 
 
@@ -36,7 +32,7 @@ fig = matplotlib.pyplot.figure(figsize=(7, 7))
 ax = fig.add_axes([0, 0, 1, 1])
 
 
-# Create the agents at the starting point
+# Create the agents at the starting point. Coordinates defined earlier.
 agents=[]
 for i in range(num_of_agents):   
     y = y_bomb_coord
@@ -52,7 +48,6 @@ for i in range(num_of_agents):
     while agents[i].z > 0: 
         agents[i].move()
         agents[i].land()
-#print("x", agents[i].x, "y", agents[i].y, "z", agents[i].z)
 print(environment)#prints number of particles at each coordinate
         
 
@@ -61,3 +56,8 @@ matplotlib.pyplot.ylim(0, 299)
 matplotlib.pyplot.xlim(0, 299)
 matplotlib.pyplot.imshow(environment)
 matplotlib.pyplot.show()
+
+#results are written to the text file Results.txt each time the file is run
+with open('Results.txt','w') as f:
+    for item in environment:
+        f.write("%s\n" % item)
